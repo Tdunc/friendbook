@@ -1,0 +1,26 @@
+<h1 class='ui header'>People</h1>
+<table class="ui celled table">
+  <thead>
+    <tr class='center aligned'>
+      <th colspan='4'></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @people.each do |person| %>
+      <tr class='center aligned'>
+        <td>
+          <img 
+            class='ui avatar image small'
+            src="https://robohash.org/<%= person.avatar %>?set=set4" 
+            alt="robots"
+          >
+        </td>
+        <td><%= link_to 'show', person_path(person) %></td>
+        <td><%= link_to 'edit', edit_person_path(person) %></td>
+        <td><%= link_to 'delete', person_path(person), method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'new', new_person_path %>
